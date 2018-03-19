@@ -17,7 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition/>
-            <RowDefinition Height="16"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -56,7 +56,7 @@
         </Grid>
 
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Auto">
-            <TextBlock Name="Output"/>
+            <TextBlock Name="Output" Margin="5"/>
         </ScrollViewer>
 
         <Grid Name="Overlay"
@@ -72,6 +72,6 @@
                    FontSize="72">✋</Label>
         </Grid>
 
-        <TextBlock Name="Timer" Grid.Row="3"></TextBlock>
+        <TextBlock Name="Timer" Grid.Row="3" Margin="5,0,0,0"></TextBlock>
     </Grid>
 </Window>

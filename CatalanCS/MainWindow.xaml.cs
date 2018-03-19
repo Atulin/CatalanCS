@@ -41,14 +41,17 @@ namespace CatalanCS
         // Handle calculate button click
         private void Calculate_Click(object sender, RoutedEventArgs e)
         {
-            List<BigInteger> catalan = Catalan();
+            // Start stopwatch
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            // Run code
+            List<BigInteger> catalan = Catalan((int)Amount.Value);
+            // Stop stopwatch
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
 
             Output.Text = "";
 
             int counter = 1;
-
-            // Start stopwatch
-            var watch = System.Diagnostics.Stopwatch.StartNew();
 
             foreach (var v in catalan)
             {
@@ -56,10 +59,7 @@ namespace CatalanCS
                 counter++;
             }
 
-            // Stop stopwatch
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            Timer.Text = elapsedMs.ToString();
+            Timer.Text = "Calculating " + (int)Amount.Value + " Catalan numbers took " + elapsedMs.ToString() + " ms";
         }
 
         // Handle save button click
@@ -82,9 +82,9 @@ namespace CatalanCS
         }
 
         // Catalan calculation
-        public List<BigInteger> Catalan()
+        public List<BigInteger> Catalan(int amount)
         {
-            int n = (int)Amount.Value;
+            int n = amount;
             BigInteger CatalanN = 1;
             int i = 1;
 
